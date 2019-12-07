@@ -1,0 +1,87 @@
+﻿@model UserRegisterModel
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="container my-5">
+    <div class="row">
+        <div class="col-12">
+            <form class="form-horizontal" method="POST">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <fieldset>
+                    <div id="legend">
+                        <p class="">Register</p>
+                    </div>
+                    <div class="control-group">
+                        <!-- Firstname -->
+                        <label class="control-label" asp-for="Firstname"></label>
+                        <div class="controls">
+                            <input asp-for="Firstname" class="input-xlarge form-control">
+                            <span asp-validation-for="Firstname" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <!-- Lastname -->
+                        <label class="control-label" asp-for="Lastname"></label>
+                        <div class="controls">
+                            <input asp-for="Lastname" class="input-xlarge form-control">
+                            <span asp-validation-for="Lastname" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <!-- Email -->
+                        <label class="control-label" asp-for="Email"></label>
+                        <div class="controls">
+                            <input asp-for="Email" class="input-xlarge form-control">
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <!-- Username -->
+                        <label class="control-label" asp-for="Username"></label>
+                        <div class="controls">
+                            <input asp-for="Username" class="input-xlarge form-control">
+                            <span asp-validation-for="Username" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <!-- Password -->
+                        <label class="control-label" asp-for="Password"></label>
+                        <div class="controls">
+                            <input asp-for="Password" class="input-xlarge form-control">
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <!-- ConfirmPassword -->
+                        <label class="control-label" asp-for="ConfirmPassword"></label>
+                        <div class="controls">
+                            <input asp-for="ConfirmPassword" class="input-xlarge form-control">
+                            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <!-- Button -->
+                        <div class="controls">
+                            <button type="submit" class="btn btn-success">Register</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+@section scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
+}

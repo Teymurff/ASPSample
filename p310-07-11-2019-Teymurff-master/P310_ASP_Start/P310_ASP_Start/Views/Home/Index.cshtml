@@ -1,0 +1,353 @@
+﻿@model P310_ASP_Start.ViewModels.HomeIndexVM
+
+@section styles{
+    <style>
+        .arrivals ul > li.toggle__pros.active {
+            background-color: rgb(252, 99, 107) !important;
+        }
+    </style>
+}
+
+<!-- Owl Carousel Start -->
+<section class="slider">
+    <div class="bd-example">
+        <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+            @{
+                bool first = true;
+            }
+            <ol class="carousel-indicators">
+                @for (int i = 0; i < Model.Sliders.Count(); i++)
+                {
+                    <li data-target="#carouselExampleCaptions" data-slide-to="@i" class="@(i == 0 ? "active" : "")"></li>
+                }
+            </ol>
+            <div class="carousel-inner">
+                @foreach (var slider in Model.Sliders)
+                {
+                    <div class="carousel-item @(first ? "active" : "")">
+                        <img src="~/img/@slider.Image" class="d-block w-100" alt="...">
+                        <div class="carousel-caption">
+                            <h3>@Html.Raw(slider.Title)</h3>
+                            <p>@Html.Raw(slider.SubTitle)</p>
+                            <button href="#" class="hoverOutta">Shop Now</button>
+                        </div>
+                    </div>
+
+                    first = false;
+                }
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+
+            </a>
+        </div>
+    </div>
+</section>
+<!-- Owl Carousel End -->
+<!--banner section html started-->
+<section class="banner-section">
+    <div class="container">
+        <div class="row">
+
+            @foreach (var item in Model.NewArrivals)
+            {
+                <div class="banner-content col-12 col-sm-12 col-md-6 col-lg-6 ">
+                    <figure class="banner-effect">
+                        <img src="~/img/@item.Image" alt="banner-photo">
+                        <figcaption>
+                            <h2>@Html.Raw(item.Title)</h2>
+                            <p>New Arrivals</p>
+                        </figcaption>
+                    </figure>
+                </div>
+            }
+
+
+        </div>
+    </div>
+</section>
+<!--banner section html ended-->
+<!-- Load more section -->
+
+<section >
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="content-header">
+                    <h1>Best products</h1>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row" id="load_more">
+            <partial 
+                name="_ProductsPartial" 
+                model="@(new ProductsPartialViewModel { Products = Model.BestProducts,
+                                                        ShowPrice = true,
+                                                        ShowCategoryClass = false })" 
+            />
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 mt-5 text-center">
+                <button data-skip="@Model.BestProducts.Count()" data-totalCount="@ViewData["total_products_count"]" class="btn btn-primary" id="load__more_btn">Load more</button>
+            </div>
+        </div>
+    </div>
+    
+</section>
+
+<!-- Load more section -->
+<!--store sales schedule html started-->
+<section class="schedule-section">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="schedule-left-content col-12 col-sm-12 col-md-12 col-lg-6">
+                <img src="~/img/mid.jpg" alt="store-photo">
+            </div>
+            <div class="schedule-right-content col-12 col-sm-12 col-md-12 col-lg-6">
+                <div class="store-sales-schedule">
+                    <div class="schedule-header">
+                        <h2>save up to <span>50%</span> in this week</h2>
+                        <p>
+                            Suspendisse varius turpis efficitur erat laoreet dapibus. Mauris sollicitudin scelerisque
+                            commodo.
+                            Nunc dapibus mauris sed metus finibus posuere.
+                        </p>
+                    </div>
+                    <div class="store-sales-statics row">
+                        <div class="customers col-12 col-sm-12 col-md-12 col-lg-4">
+                            <span id="counter">
+                                <i class="far fa-user"></i>
+                                <p>customers</p>
+                                <span class="counter-value" data-count="653">0</span>
+                        </div>
+                        <div class="events col-12 col-sm-12 col-md-12 col-lg-4">
+                            <i class="far fa-calendar"></i>
+                            <p>events</p>
+                            <span class="counter-value" data-count="823">100</span>
+                        </div>
+                        <div class="awards col-12 col-sm-12 col-md-12 col-lg-4">
+                            <i class="fas fa-shield-alt"></i>
+                            <p>awards</p>
+                            <span class="counter-value" data-count="45">200</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--store sales schedule html ended-->
+<!--trending section html started-->
+<section id="trending-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="content-header">
+                    <h1><span>what's</span> trending</h1>
+                </div>
+            </div>
+            <div class="col-md-12 col-lg-12">
+                <div class="row">
+                    <div class="content-left-side col-12 col-sm-12 col-md-5">
+                        <figure class="content-photo">
+                            <img src="~/img/bb1.jpg" alt="trending-photo">
+                            <figcaption>
+                                <h2><span>s</span>ale</h2>
+                                <p>Upto 55%</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="content-right-side col-12 col-sm-12 col-md-7">
+                        <div class="banner-content col-12 col-sm-12 col-md-12">
+                            <figure class="banner-effect">
+                                <img src="~/img/bottom3.jpg" alt="trending-photo">
+                                <figcaption>
+                                    <h2 class="content-right-side-header"><span>s</span>ale</h2>
+                                    <p class="content-right-side-p">Upto 55%</p>
+                                </figcaption>
+                            </figure>
+                        </div>
+                        <div class="banner-content col-12 col-sm-12 col-md-12">
+                            <figure class="banner-effect" id="banner-effect">
+                                <img src="~/img/bottom4.jpg" alt="trending-photo">
+                                <figcaption>
+                                    <h2 class="content-right-side-header"><span>s</span>ale</h2>
+                                    <p class="content-right-side-p">Upto 55%</p>
+                                </figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--trending section html ended-->
+<!--flat offer section html started-->
+<section class="flat-offer">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="offer-content col-12 col-sm-12 col-md-6">
+                <div class="div-for-shadow-top"></div>
+                <div class="div-for-shadow-bottom"></div>
+                <figure>
+                    <img src="~/img/bot_1.jpg" alt="offer-photo">
+                    <figcaption>
+                        <h2>Flat <span>50%</span> offer</h2>
+                    </figcaption>
+                </figure>
+            </div>
+            <div class="offer-content col-12 col-sm-12 col-md-6">
+                <div class="div-for-shadow-top"></div>
+                <div class="div-for-shadow-bottom"></div>
+                <figure>
+                    <img src="~/img/bot_2.jpg" alt="offer-photo">
+                    <figcaption>
+                        <h2>Flat <span>50%</span> offer</h2>
+                    </figcaption>
+                </figure>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="arrivals">
+    <div class="container">
+        <div class="col-md-12">
+            <div class="arrival_content">
+                <h1><span>NEW </span> ARRIVALS</h1>
+            </div>
+        </div>
+
+        <div class="arrivals d-md-block d-sm-none d-none">
+            <div class=" col-12">
+                <div class="product_name">
+                    <ul>
+                        <li class="toggle__pros" id="all">
+                            ALL
+                            <div class="triangle"></div>
+                        </li>
+                        @foreach (var cat in Model.Categories)
+                        {
+                            <li class="toggle__pros" id="@cat.Name.ToLower()">
+                                @cat.Name.ToUpper()
+                                <div class="triangle"></div>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mens" style="display:block;">
+                <div class="col-12">
+                    <div class="row mensWearPlace"></div>
+                </div>
+            </div>
+
+            <div class="women" style="display:none;">
+                <div class="col-12">
+                    <div class="row womensWearPlace"></div>
+                </div>
+            </div>
+
+            <div class="bags" style="display:none;">
+                <div class="col-12">
+                    <div class="row bagsPlace"></div>
+                </div>
+            </div>
+
+            <div class="footwear" style="display:none;">
+                <div class="col-12">
+                    <div class="row footwearPlace"></div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="accordionProducts col-sm-12 accordion" id="accordionExample">
+            <div class="col-12">
+                <div class="row ">
+                    <partial 
+                             name="_ProductsPartial" 
+                             model="@(new ProductsPartialViewModel {
+                                            Products = Model.NewProducts,
+                                            ShowPrice = false,
+                                            ShowCategoryClass = true})"
+                             />
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="basket-schedule" style="display: none" id="bl">
+    <i class="fas fa-times" id="closer"></i>
+    <ul id="minicart"></ul>
+</section>
+
+<section class="miniShoppingCart openModal d-none" id="modal">
+    <span class="float-right" id="close" onclick="closeModal('modal')">x</span>
+    <ul class="insideOfCart">
+    </ul>
+    <span class="totalAmount font-weight-bold offset-1">Subtotal: $<span id="totalAmount">0.00</span> USD</span>
+</section>
+
+<button class="btn btn-large btn-block  btn-info" id="openCart" onclick="showModal('modal')">
+    Open Cart
+</button>
+
+
+<section class="discount" data-name="discount">
+    <div class="row">
+        <div class="container">
+            <p class="weOffer">We Offer Flat <span>40%</span> Discount</p>
+            <button href="#" class="hoverOutta">Shop Now</button>
+        </div>
+    </div>
+
+</section>
+
+<section class="servis" data-name=" services">
+    <div class="row">
+        <div class="service mt-2 col-xl-3 col-md-6 col-sm-6 col-12 float-left">
+            <div class="blackHole float-left"><i class="fas fa-truck"></i></div>
+            <div class="whiteSoul text-left col-xl-10 col-lg-10 col-md-8 col-sm-10 col-10">
+                <h5 class="mb-1">FREE SHIPPING</h5>
+                <p>Lorem ipsum dolor sit amet, consectetur</p>
+            </div>
+        </div>
+        <div class="service mt-2 col-xl-3 col-md-6 col-sm-6 col-12 float-left">
+            <div class="blackHole float-left"><i class="fas fa-headphones"></i></div>
+            <div class="whiteSoul text-left  col-xl-10 col-lg-10 col-md-8 col-sm-10 col-10">
+                <h5 class="mb-1">24/7 SUPPORT</h5>
+                <p>Lorem ipsum dolor sit amet, consectetur</p>
+            </div>
+        </div>
+        <div class="service mt-2 col-xl-3 col-md-6 col-sm-6 col-12 float-left">
+            <div class="blackHole float-left"><i class="fas fa-shopping-bag"></i></div>
+            <div class="whiteSoul text-left col-xl-10 col-lg-10 col-md-8 col-sm-10 col-10">
+                <h5 class="mb-1">MONEY BACK GUARANTEE</h5>
+                <p>Lorem ipsum dolor sit amet, consectetur</p>
+            </div>
+        </div>
+        <div class="service mt-2 col-xl-3 col-md-6 col-sm-6 col-12 float-left">
+            <div class="blackHole float-left"><i class="fas fa-gift"></i></div>
+            <div class="whiteSoul text-left  col-xl-10 col-lg-10 col-md-8 col-sm-10 col-10">
+                <h5 class="mb-1">FREE GIFT COUPONS</h5>
+                <p>Lorem ipsum dolor sit amet, consectetur</p>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+

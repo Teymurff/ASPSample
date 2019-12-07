@@ -1,0 +1,35 @@
+﻿@model ProductsPartialViewModel
+
+@foreach (var product in Model.Products)
+{
+    <div class="col-lg-3 col-md-4 col-sm-6 col-12 @(Model.ShowCategoryClass ? "all " + product.Category.Name.ToLower() : "")">
+        <div class="card">
+            <div class="product_image">
+                <img src="~/img/@product.Image" class="card-img-top" alt="...">
+                <a href="product_page.html" class="quick_view"> QUICK VIEW </a>
+                <span>New</span>
+            </div>
+            <div class="card-body">
+                <div class="product_info" id="p_1">
+                    <h5><a href="" class="productName">@product.Name</a></h5>
+                    <span class="d-none productID">09</span>
+                    <div class="product_price">
+                        @if (product.HasDiscount)
+                        {
+                            <span class="card-text productPrice">$@product.DiscountedPrice</span>
+                        }
+                        @if (Model.ShowPrice)
+                        {
+                            <del class="text-muted">$@product.Price</del>
+                        }
+                    </div>
+                </div>
+                <div data-id="@product.Id" class="addCard">
+                    <button class="addToCart">ADD TO CART</button>
+                    <div class="addCard1"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+

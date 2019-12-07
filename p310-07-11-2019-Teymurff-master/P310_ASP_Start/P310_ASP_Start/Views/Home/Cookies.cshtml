@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewData["Title"] = "Cookies";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var mode = ViewData["mode"]?.ToString();
+}
+
+@section styles{
+    @if (mode == null || string.IsNullOrEmpty(mode) || mode == "default")
+    {
+        <link rel="stylesheet" href="~/css/default.css" />
+    }
+    else if (mode == "dark")
+    {
+        <link rel="stylesheet" href="~/css/dark.css" />
+    }
+    else if (mode == "light")
+    {
+        <link rel="stylesheet" href="~/css/light.css" />
+    }
+    else
+    {
+        <link rel="stylesheet" href="~/css/default.css" />
+    }
+}
+
+<h2>Cookies</h2>
+
+<p>Welcome</p>
+
+

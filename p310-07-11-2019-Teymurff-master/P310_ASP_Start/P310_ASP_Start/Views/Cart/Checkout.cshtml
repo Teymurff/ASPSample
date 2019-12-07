@@ -1,0 +1,51 @@
+﻿@model List<CardItem>
+
+@{
+    ViewData["Title"] = "Checkout";
+}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h2>Checkout</h2>
+
+            @if (Model.Count == 0)
+            {
+                <div class="alert alert-warning">
+                    Deer user, you have not added anything to your God damn cart. Go and get something.
+                    <br />
+                    <a href="/">Go there!</a>
+                </div>
+            }
+            else
+            {
+                <table class="table table-bordered table-striped table-hovered">
+                    <thead>
+                        <tr>
+                            <th>Image</th>
+                            <th>Name</th>
+                            <th>Category</th>
+                            <th>Price</th>
+                            <th>Count</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var pro in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <img src="~/img/@pro.Image" width="100" />
+                                </td>
+                                <td>@pro.ProductName</td>
+                                <td>@pro.CategoryName</td>
+                                <td>@pro.ProductPrice AZN</td>
+                                <td>@pro.Count</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+        </div>
+    </div>
+</div>

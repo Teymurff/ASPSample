@@ -1,0 +1,88 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MailKit" Version="2.4.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="2.1.4" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.10" />
+    <PackageReference Include="MimeKit" Version="2.4.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\Admin\Models\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\admin\css\cs-skin-elastic.css" />
+    <None Include="wwwroot\admin\css\lib\chosen\chosen-sprite%402x.png" />
+    <None Include="wwwroot\admin\css\lib\chosen\chosen-sprite.png" />
+    <None Include="wwwroot\admin\css\lib\chosen\chosen.css" />
+    <None Include="wwwroot\admin\css\lib\chosen\chosen.min.css" />
+    <None Include="wwwroot\admin\css\lib\datatable\buttons.bootstrap.min.css" />
+    <None Include="wwwroot\admin\css\lib\datatable\buttons.dataTables.min.css" />
+    <None Include="wwwroot\admin\css\lib\datatable\dataTables.bootstrap.min.css" />
+    <None Include="wwwroot\admin\css\lib\vector-map\jqvmap.min.css" />
+    <None Include="wwwroot\admin\css\style.css" />
+    <None Include="wwwroot\admin\css\style.css.map" />
+    <None Include="wwwroot\admin\fonts\icomoon\icomoon.eot" />
+    <None Include="wwwroot\admin\fonts\icomoon\icomoon.svg" />
+    <None Include="wwwroot\admin\fonts\icomoon\icomoon.ttf" />
+    <None Include="wwwroot\admin\fonts\icomoon\icomoon.woff" />
+    <None Include="wwwroot\admin\fonts\icomoon\index.html" />
+    <None Include="wwwroot\admin\images\.gitignore" />
+    <None Include="wwwroot\admin\images\admin.jpg" />
+    <None Include="wwwroot\admin\images\avatar\1.jpg" />
+    <None Include="wwwroot\admin\images\avatar\2.jpg" />
+    <None Include="wwwroot\admin\images\avatar\3.jpg" />
+    <None Include="wwwroot\admin\images\avatar\4.jpg" />
+    <None Include="wwwroot\admin\images\avatar\5.jpg" />
+    <None Include="wwwroot\admin\images\avatar\6.jpg" />
+    <None Include="wwwroot\admin\images\avatar\64-1.jpg" />
+    <None Include="wwwroot\admin\images\avatar\64-2.jpg" />
+    <None Include="wwwroot\admin\images\favicon.png" />
+    <None Include="wwwroot\admin\images\logo.png" />
+    <None Include="wwwroot\admin\images\logo.psd" />
+    <None Include="wwwroot\admin\images\logo2.png" />
+    <None Include="wwwroot\admin\js\dashboard.js" />
+    <None Include="wwwroot\admin\js\init\chartjs-init.js" />
+    <None Include="wwwroot\admin\js\init\datatables-init.js" />
+    <None Include="wwwroot\admin\js\init\flot-chart-init.js" />
+    <None Include="wwwroot\admin\js\init\fullcalendar-init.js" />
+    <None Include="wwwroot\admin\js\init\gmap-init.js" />
+    <None Include="wwwroot\admin\js\init\peitychart-init.js" />
+    <None Include="wwwroot\admin\js\init\vector-init.js" />
+    <None Include="wwwroot\admin\js\init\weather-init.js" />
+    <None Include="wwwroot\admin\js\lib\chosen\chosen.jquery.js" />
+    <None Include="wwwroot\admin\js\lib\chosen\chosen.jquery.min.js" />
+    <None Include="wwwroot\admin\js\lib\chosen\chosen.proto.js" />
+    <None Include="wwwroot\admin\js\lib\chosen\chosen.proto.min.js" />
+    <None Include="wwwroot\admin\js\lib\data-table\buttons.bootstrap.min.js" />
+    <None Include="wwwroot\admin\js\lib\data-table\buttons.colVis.min.js" />
+    <None Include="wwwroot\admin\js\lib\data-table\buttons.flash.min.js" />
+    <None Include="wwwroot\admin\js\lib\data-table\buttons.html5.min.js" />
+    <None Include="wwwroot\admin\js\lib\data-table\buttons.print.min.js" />
+    <None Include="wwwroot\admin\js\lib\data-table\dataTables.bootstrap.min.js" />
+    <None Include="wwwroot\admin\js\lib\data-table\dataTables.buttons.min.js" />
+    <None Include="wwwroot\admin\js\lib\data-table\datatables.min.js" />
+    <None Include="wwwroot\admin\js\lib\data-table\jquery-1.12.4.js" />
+    <None Include="wwwroot\admin\js\lib\data-table\jquery.dataTables.min.js" />
+    <None Include="wwwroot\admin\js\lib\data-table\jszip.min.js" />
+    <None Include="wwwroot\admin\js\lib\data-table\pdfmake.min.js" />
+    <None Include="wwwroot\admin\js\lib\data-table\vfs_fonts.js" />
+    <None Include="wwwroot\admin\js\lib\gmap\gmapApi.js" />
+    <None Include="wwwroot\admin\js\lib\gmap\gmaps.js" />
+    <None Include="wwwroot\admin\js\lib\gmap\gmaps.min.js" />
+    <None Include="wwwroot\admin\js\main.js" />
+    <None Include="wwwroot\admin\js\vmap.sampledata.js" />
+    <None Include="wwwroot\admin\js\widgets.js" />
+    <None Include="wwwroot\admin\scss\style.css" />
+    <None Include="wwwroot\admin\scss\style.css.map" />
+    <None Include="wwwroot\admin\scss\style.scss" />
+  </ItemGroup>
+
+</Project>

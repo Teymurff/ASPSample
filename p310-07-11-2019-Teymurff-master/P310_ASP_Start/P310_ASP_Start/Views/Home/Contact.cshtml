@@ -1,0 +1,92 @@
+﻿@model IEnumerable<Category>
+
+@{
+    ViewData["Title"] = "Contact";
+}
+
+@section styles{ 
+<style>
+    #products__table img{
+        width: 200px;
+    }
+</style>
+}
+
+<div class="row" >
+    <div class="col-md-6 mx-auto" >
+        <div class="form-group">
+            <label>Category</label>
+            <select id="categories" class="form-control">
+                @foreach (var cat in Model)
+                {
+                    <option value="@cat.Id">@cat.Name</option>
+                }
+            </select>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 mx-auto">
+        <table id="products__table" class="table table-bordered table-primary table-striped d-none">
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Is New?</th>
+                    <th>HasDiscount</th>
+                    <th>Price</th>
+                    <th>Discount Price</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+@section scripts{ 
+    <script>
+        $(document).on("change", "#categories", function (e) {
+            var catId = $(this).val();
+
+            $.ajax({
+                url: "/Ajax/GetProductsByCategoryId/" + catId,
+                type: "GET",
+                success: function (res) {
+                    var tableBody = $("#products__table tbody");
+                    tableBody.empty();
+                    tableBody.parent().addClass("d-none");
+
+                    if (res.status === 200 && res.data.length) {
+                        for (var i = 0; i < res.data.length; i++) {
+                            var currentPro = res.data[i];
+
+                            var tr = $("<tr>");
+
+                            var tdImage = $("<td>");
+                            $("<img>")
+                                .attr("src", "/img/" + currentPro.image)
+                                .appendTo(tdImage);
+
+                            tdImage.appendTo(tr);
+
+                            $("<td>").text(currentPro.name).appendTo(tr);
+                            $("<td>").text(currentPro.isNew).appendTo(tr);
+                            $("<td>").text(currentPro.hasDiscount).appendTo(tr);
+                            $("<td>").text(currentPro.price).appendTo(tr);
+                            $("<td>").text(currentPro.discountedPrice).appendTo(tr);
+
+                            tableBody.append(tr);
+                        }
+
+                        tableBody.parent().removeClass("d-none");
+                    }
+                }
+            });
+        });
+    </script>
+}

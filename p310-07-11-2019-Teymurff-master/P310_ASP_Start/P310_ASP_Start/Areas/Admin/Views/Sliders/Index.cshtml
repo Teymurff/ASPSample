@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Slider>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+@section styles{
+    <style>
+        table td {
+            vertical-align: middle;
+        }
+    </style>
+}
+
+@if(TempData["success_message"] != null)
+{
+    <div class="alert alert-success">@TempData["success_message"]</div>
+}
+
+<a asp-action="Create" class="btn btn-outline-success btn-block btn-lg">
+    Create New Slider
+</a>
+
+<table class="table-bordered table table-striped">
+    <thead>
+        <tr>
+            <th>Image</th>
+            <th>Title</th>
+            <th>Subtitle</th>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var slide in Model)
+        {
+            <tr>
+                <td>
+                    <img src="~/img/@slide.Image" width="150" />
+                </td>
+                <td>@Html.Raw(slide.Title)</td>
+                <td>@Html.Raw(slide.SubTitle)</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@slide.Id" class="btn btn-warning">
+                        <i class="fas fa-pencil-alt"></i>
+                    </a>
+                    @if(Model.Count() > 2)
+                    {
+                        <a asp-action="Delete" asp-route-id="@slide.Id" class="btn btn-danger">
+                            <i class="fas fa-trash"></i>
+                        </a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section scripts{
+    <script>
+        $("img").click(function () { alert("Seviyyesiz Ayxan"); })
+    </script>
+}
+
